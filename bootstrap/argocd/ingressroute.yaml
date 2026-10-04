@@ -9,5 +9,7 @@ spec:
     - match: Host(`argocd.osharko.lan`)
       kind: Rule
       services:
-        - name: argo-cd-argocd-server
+        # install.yaml (non Helm): il Service è "argocd-server".
+        # Server patchato con --insecure → serve HTTP su :8080 dietro Traefik.
+        - name: argocd-server
           port: 80
