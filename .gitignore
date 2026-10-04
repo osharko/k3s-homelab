@@ -1,0 +1,23 @@
+# Secret / variabili sensibili — MAI in git
+.env
+.env.*
+*.env
+
+# OpenTofu / Terraform
+.tofu/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+override.tf
+
+# ArgoCD / kubeconfig
+*.kubeconfig
+kubeconfig
+argocd-admin-password
+
+# Editor / OS
+.DS_Store
+*.swp
+*~

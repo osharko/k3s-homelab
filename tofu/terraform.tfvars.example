@@ -1,0 +1,5 @@
+# Copia in terraform.tfvars (gitignored) e riempi.
+# kubeconfig_path = "/home/osharko/.kube/config"
+# kube_context    = "default"
+op_service_account_token = "ops_xxx...   # 1Password Service Account token"
+# state_passphrase       = "..."          # solo se cifratura state attiva

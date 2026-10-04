@@ -1,0 +1,32 @@
+# ApplicationSet — auto-discovery di apps/* e projects/*
+# Aggiungere una cartella con un kustomization.yaml = creare una nuova Application.
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: homelab
+  namespace: argocd
+spec:
+  goTemplate: true
+  generators:
+    - git:
+        repoURL: https://github.com/osharko/k3s-homelab.git
+        revision: HEAD
+        directories:
+          - path: apps/*
+          - path: projects/*
+  template:
+    metadata:
+      name: '{{.path.basename}}'
+      namespace: argocd
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/osharko/k3s-homelab.git
+        targetRevision: HEAD
+        path: '{{.path.path}}'
+      destination:
+        server: https://kubernetes.default.svc
+      syncPolicy:
+        # Adozione incrementale: niente auto-sync/prune finché l'app non è allineata live↔git.
+        syncOptions:
+          - CreateNamespace=true
