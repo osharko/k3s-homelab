@@ -8,8 +8,8 @@
 - Proxmox VE 9.2.2 su Debian 13 (trixie), kernel `7.0.2-6-pve`
 - 16 core, 93.7 GB RAM
 - Bridge: `vmbr0` LAN `192.168.188.200/24` · `vmbr1` cluster `10.10.0.1/24`
-- ZFS: `tank` 5.45T (NVMe, `/mnt/tank`), `Love_n_Family` 72.8T (HDD raidz2, `/mnt/Love_n_Family`),
-  `morente` 238G (Patriot in via di guasto, scratch)
+- ZFS: `tank` 5.45T (raidz1 di **3× SSD SATA 2TB**, `/mnt/tank`), `Love_n_Family` 72.8T
+  (raidz2 di **5× HDD Seagate 16TB**, `/mnt/Love_n_Family`), `morente` 238G (NVMe Patriot in via di guasto, scratch)
 
 ## Cluster k3s
 
