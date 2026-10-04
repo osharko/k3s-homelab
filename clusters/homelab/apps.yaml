@@ -12,6 +12,7 @@ spec:
         repoURL: https://github.com/osharko/k3s-homelab.git
         revision: HEAD
         directories:
+          - path: infrastructure/*
           - path: apps/*
           - path: projects/*
   template:
